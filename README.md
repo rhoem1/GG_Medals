@@ -1,0 +1,1 @@
+# Medal Manager for GG
