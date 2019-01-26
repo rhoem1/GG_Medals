@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <style>
+
+      uniform {
+        display: block;
+        position: relative;
+        float: left;
+        background-image: url("template.jpg");
+        width: 897px;
+        height: 723px;
+      }
+
+      rank {
+        display: block;
+        position: absolute;
+        float:left;
+        width: 185px;
+        height: 85px;
+        top: 105px;
+        left: 188px;
+        transform: rotate(-30deg) scale(0.8, 0.8);
+        background-repeat: no-repeat;
+      }
+
+      rank.fng {
+        background-image: url("rank_FNG.png");
+      }
+      rank.gunslinger {
+        background-image: url("rank_gunslinger.png");
+      }
+      rank.officer {
+        background-image: url("rank_officer.png");
+      }
+      rank.founder {
+        background-image: url("rank_founder.png");
+      }
+
+      founder {
+        display: none;
+        position: absolute;
+        float:left;
+        background-image: url("founder_pip.png");
+        width:117px;
+        height:112px;
+        top: 250px;
+        left: 600px;
+      }
+      founder.visible {
+        display: block;
+      }
+
+      veteran {
+        display: none;
+        position: absolute;
+        float:left;
+        background-image: url("veteran_pip.png");
+        width: 93px;
+        height: 97px;
+        top: 263px;
+        left: 510px;
+      }
+      veteran.visible {
+        display: block;
+      }
+
+      nameplate {
+        display: block;
+        position: absolute;
+        float: left;
+        height: 100px;
+        width: 500px;
+        top: 580px;
+        left: 400px;
+        line-height: 100px;
+      }
+      name {
+        vertical-align: middle;
+        display: inline-block;
+        font-family: courier;
+        font-weight:  bold;
+        font-size: 42pt;
+        line-height: 36pt;
+      }
+
+      medals {
+        display: block;
+        position: absolute;
+        float: left;
+        height: 160px;
+        width: 400px;
+        left: 300px;
+        top: 380px;
+      }
+      medal {
+        display: none;
+        position: relative;
+        float: left;
+        width: 98px;
+        background-size: cover;
+        height: 30px;
+        margin: 1px;
+        text-align: center;
+        line-height: 30px;
+        padding-top: 2px;
+      }
+      medals.blooded medal.blooded,
+      medals.master_is_dd medal.master_is_dd,
+      medals.master_clan_dd medal.master_clan_dd,
+      medals.master_solaris medal.master_solaris,
+      medals.victory_boreal medal.victory_boreal,
+      medals.victory_emerald_taiga medal.victory_emerald_taiga,
+      medals.victory_grim_portico medal.victory_grim_portico,
+      medals.victory_helbore_springs medal.victory_helbore_springs,
+      medals.victory_sulphurous_rift medal.victory_sulphurous_rift,
+      medals.victory_victric_forge medal.victory_victric_forge
+      {
+        display: block;
+      }
+
+      medal.blooded {
+        background-image: url("blooded.png");
+      }
+      medal.master_is_dd {
+        background-image: url("master_is_dd.png");
+      }
+      medal.master_clan_dd {
+        background-image: url("master_clan_dd.png");
+      }
+      medal.master_solaris {
+        background-image: url("master_solaris.png");
+      }
+
+      medal.victory_boreal {
+        background-image: url("victory_boreal.png");
+      }
+      medal.victory_emerald_taiga {
+        background-image: url("victory_emerald_taiga.png");
+      }
+      medal.victory_grim_portico {
+        background-image: url("victory_grim_portico.png");
+      }
+      medal.victory_helbore_springs {
+        background-image: url("victory_helbore_springs.png");
+      }
+      medal.victory_sulphurous_rift {
+        background-image: url("victory_sulphurous_rift.png");
+      }
+      medal.victory_victric_forge {
+        background-image: url("victory_victric_forge.png");
+      }
+
+      medal.blooded.medium pip.medium,
+      medal.blooded.heavy pip.heavy,
+      medal.lance_leader pip.lance_leader,
+      medal.team_leader pip.team_leader
+       {
+        display: inline-block;
+      }
+
+      medal.blooded pip {
+        display: none;
+        width: 30px;
+        height: 23px;
+        background-image: url("pip_blooded.png");
+        transform: scale(0.8, 0.8);
+      }
+      pip.lance_leader {
+        display: none;
+        width: 49px;
+        height: 27px;
+        background-image: url("pip_lance_leader.png");
+        transform: scale(0.8, 0.8);
+      }
+      pip.team_leader {
+        display: none;
+        width: 49px;
+        height: 27px;
+        background-image: url("pip_team_leader.png");
+        transform: scale(0.8, 0.8);
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      controls {
+        display: block;
+        position: relative;
+        float: left;
+        border: 2px solid black;
+        margin-left: 10px;
+        padding: 10px;
+      }
+ 
+    </style>
+    <uniform>
+      <rank class=""></rank>
+      <founder class=""></founder>
+      <veteran class=""></veteran>
+      <medals class="">
+        <medal class="blooded"><pip class="medium"></pip><pip class="heavy"></pip></medal>
+        <medal class="master_is_dd"></medal>
+        <medal class="master_clan_dd"></medal>
+        <medal class="master_solaris"></medal>
+        <medal class="victory_boreal"><pip class="lance_leader"></pip><pip class="team_leader"></pip></medal>
+        <medal class="victory_emerald_taiga"><pip class="lance_leader"></pip><pip class="team_leader"></pip></medal>
+        <medal class="victory_grim_portico"><pip class="lance_leader"></pip><pip class="team_leader"></pip></medal>
+        <medal class="victory_helbore_springs"><pip class="lance_leader"></pip><pip class="team_leader"></pip></medal>
+        <medal class="victory_sulphurous_rift"><pip class="lance_leader"></pip><pip class="team_leader"></pip></medal>
+        <medal class="victory_victric_forge"><pip class="lance_leader"></pip><pip class="team_leader"></pip></medal>
+      </medals>
+      <nameplate><name></name></nameplate>
+    </uniform>
+
+    <controls>
+      <form id="info">
+      <h2>Basics</h2>
+      <label for="name">Name</label>
+      <input id="name" type="text" />
+      <br />
+      <label for="rank">Rank</label>
+      <select id="rank">
+        <option vlaue="">Unranked Squib</option>
+        <option value="fng">Finally a New Guy</option>
+        <option value="gunslinger">Gunslinger</option>
+        <option value="officer">Officer</option>
+        <option value="founder">Founder</option>
+      </select>
+      <hr>
+
+      <h2>Honors</h2>
+      <input type="checkbox" id="founder" />
+      <label for="founder">Founder</label>
+      <br />
+      <input type="checkbox" id="veteran" />
+      <label for="veteran">Veteran</label>
+      <br />
+      <hr>
+
+        
+      <h2>Blooded</h2>
+      <input type="checkbox" id="blooded" />
+      <label for="blooded">Blooded Successfully</label>
+      <br />
+      <input type="checkbox" id="blooded_medium" />
+      <label for="blooded_medium">Medium Defeated</label>
+      <br />
+      <input type="checkbox" id="blooded_heavy" />
+      <label for="blooded_heavy">Heavy Defeated</label>
+      <br />
+      <hr>
+      
+      <h2>Drop Decks</h2>
+      <input type="checkbox" id="master_is_dd" />
+      <label for="master_is_dd">Inner Sphere Mastered</label>
+      <br />
+      <input type="checkbox" id="master_clan_dd" />
+      <label for="master_clan_dd">Clan Mastered</label>
+      <br />
+      <input type="checkbox" id="master_solaris" />
+      <label for="master_solaris">Solaris Division Mastered</label>
+      <br />
+      <hr>
+      
+      <h2>Victories in Faction Play</h2>
+      <table>
+        <tr>
+          <th>
+            Location
+          </th>
+          <th>
+            Victory
+          </th>
+          <th>
+            Lance Leader
+          </th>
+          <th>
+            Team Leader
+          </th>
+        </tr>
+        <tr>
+          <td>
+            <label for="victory_boreal">Boreal</label>
+          </td>
+          <td>
+            <input type="checkbox" id="victory_boreal" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_boreal_lance" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_boreal_team" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="victory_emerald_taiga">Emerald Taiga</label>
+          </td>
+          <td>
+            <input type="checkbox" id="victory_emerald_taiga" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_emerald_taiga_lance" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_emerald_taiga_team" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="victory_grim_portico">Grim Portico</label>
+          </td>
+          <td>
+            <input type="checkbox" id="victory_grim_portico" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_grim_portico_lance" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_grim_portico_team" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="victory_helbore_springs">Helbore Springs</label>
+          </td>
+          <td>
+            <input type="checkbox" id="victory_helbore_springs" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_helbore_springs_lance" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_helbore_springs_team" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="victory_sulphurous_rift">Sulphurous Rift</label>
+          </td>
+          <td>
+            <input type="checkbox" id="victory_sulphurous_rift" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_sulphurous_rift_lance" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_sulphurous_rift_team" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="victory_victric_forge">Victric Forge</label>
+          </td>
+          <td>
+            <input type="checkbox" id="victory_victric_forge" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_victric_forge_lance" />
+          </td>
+          <td>
+            <input type="checkbox" id="victory_victric_forge_team" />
+          </td>
+        </tr>
+        
+        </table>
+      <hr>
+      </form>
+      <button id="update">Update</button>
+    </controls>
+    <script>
+
+window.onload = () => {
+  const update = document.getElementById('update');
+  const form = document.getElementById('info');
+  const rank = document.querySelector('rank');
+  const founder = document.querySelector('founder');
+  const veteran = document.querySelector('veteran');
+  const name = document.querySelector('name');
+  const medals = document.querySelector('medals');
+  const blooded = document.querySelector('medal.blooded');
+  const master_names = ('master_is_dd master_clan_dd master_solaris').split(' ');
+  const victory_list = ('victory_boreal victory_emerald_taiga victory_grim_portico victory_helbore_springs victory_sulphurous_rift victory_victric_forge').split(' ');
+  const victories = {};
+  for(const v of victory_list) {
+    victories[v] = document.querySelector(`medal.${v}`);
+  }
+
+  update.onclick = () => {
+    
+    name.innerText = form.name.value;
+    rank.className = form.rank.value;
+    founder.className = form.founder.checked ? 'visible': '';
+    veteran.className = form.veteran.checked ? 'visible': '';
+    medals.className = '';
+    if(form.blooded.checked) {
+      medals.classList.add('blooded');
+    }
+    blooded.className = 'blooded';
+    if(form.blooded_medium.checked) {
+      blooded.classList.add('medium');
+    }
+    if(form.blooded_heavy.checked) {
+      blooded.classList.add('heavy');
+    }
+    for(const master of master_names) {
+      if(form[master].checked) {
+        medals.classList.add(master);
+      }
+    }
+
+    for(const v of victory_list) {
+      if(form[v].checked) {
+        medals.classList.add(v);
+      }
+      victories[v].className = v;
+      if(form[`${v}_lance`].checked) {
+        victories[v].classList.add('lance_leader');
+      }
+      if(form[`${v}_team`].checked) {
+        victories[v].classList.add('team_leader');
+      }
+    }
+
+
+
+  }
+
+
+}
+
+    </script>
+  </body>
+</html>
